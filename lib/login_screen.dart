@@ -94,31 +94,11 @@ class _LogInScreenState extends State<LogInScreen> {
                                       border: Border(
                                           bottom: BorderSide(
                                               color: Colors.grey[300]))),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      hintText: "E-mail or Phone ",
-                                      hintStyle: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                      border: InputBorder.none,
-                                    ),
-                                  ),
+                                  child: TextFieldBuilder("E-mail or Phone"),
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(2.0),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      hintText: "Password",
-                                      hintStyle: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                      border: InputBorder.none,
-                                    ),
-                                  ),
+                                  child: TextFieldBuilder("Password"),
                                 ),
                               ],
                             ),
@@ -137,22 +117,10 @@ class _LogInScreenState extends State<LogInScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 0, horizontal: 70),
-                                decoration: BoxDecoration(
-                                  color: Colors.orange,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(50)),
-                                ),
-                                child: MaterialButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Login",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
-                                  ),
-                                ),
+                              ButtonBuilder(
+                                text: "Login",
+                                horizontal: 50,
+                                color: Colors.orange[600],
                               ),
                               SizedBox(
                                 height: 40,
@@ -170,39 +138,15 @@ class _LogInScreenState extends State<LogInScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 0, horizontal: 10),
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue[600],
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(50)),
-                                    ),
-                                    child: MaterialButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Facebook",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 18),
-                                      ),
-                                    ),
+                                  ButtonBuilder(
+                                    text: "Facebook",
+                                    horizontal: 10,
+                                    color: Colors.blue[600],
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 0, horizontal: 25),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(50)),
-                                    ),
-                                    child: MaterialButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Github",
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 18),
-                                      ),
-                                    ),
+                                  ButtonBuilder(
+                                    text: "Github",
+                                    horizontal: 25,
+                                    color: Colors.black,
                                   ),
                                 ],
                               )
@@ -215,6 +159,52 @@ class _LogInScreenState extends State<LogInScreen> {
                 )
               ],
             )),
+      ),
+    );
+  }
+}
+
+class ButtonBuilder extends StatelessWidget {
+  ButtonBuilder(
+      {@required this.text, @required this.horizontal, @required this.color});
+  final String text;
+  final double horizontal;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 0, horizontal: horizontal),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.all(Radius.circular(50)),
+      ),
+      child: MaterialButton(
+        onPressed: () {},
+        child: Text(
+          text,
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+      ),
+    );
+  }
+}
+
+class TextFieldBuilder extends StatelessWidget {
+  TextFieldBuilder(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      decoration: InputDecoration(
+        hintText: text,
+        hintStyle: TextStyle(
+          fontSize: 18,
+          color: Colors.grey,
+          fontWeight: FontWeight.normal,
+        ),
+        border: InputBorder.none,
       ),
     );
   }
