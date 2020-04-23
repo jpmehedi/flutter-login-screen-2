@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'animation/fade_animation.dart';
 
 class LogInScreen extends StatefulWidget {
   @override
@@ -34,22 +35,28 @@ class _LogInScreenState extends State<LogInScreen> {
                       SizedBox(
                         height: 50,
                       ),
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold),
+                      FadeAnimation(
+                        1.0,
+                        Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "Welcome Back",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal),
+                      FadeAnimation(
+                        1.1,
+                        Text(
+                          "Welcome Back",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal),
+                        ),
                       ),
                       SizedBox(
                         height: 10,
@@ -88,17 +95,23 @@ class _LogInScreenState extends State<LogInScreen> {
                             ),
                             child: Column(
                               children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.all(2.0),
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Colors.grey[300]))),
-                                  child: TextFieldBuilder("E-mail or Phone"),
+                                FadeAnimation(
+                                  1.2,
+                                  Container(
+                                    padding: EdgeInsets.all(2.0),
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                color: Colors.grey[300]))),
+                                    child: TextFieldBuilder("E-mail or Phone"),
+                                  ),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(2.0),
-                                  child: TextFieldBuilder("Password"),
+                                FadeAnimation(
+                                  1.4,
+                                  Container(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: TextFieldBuilder("Password"),
+                                  ),
                                 ),
                               ],
                             ),
@@ -109,26 +122,35 @@ class _LogInScreenState extends State<LogInScreen> {
                           Column(
                             children: <Widget>[
                               Container(
-                                child: Text(
-                                  "Forget Password?",
-                                  style: TextStyle(color: Colors.grey[400]),
+                                child: FadeAnimation(
+                                  1.5,
+                                  Text(
+                                    "Forget Password?",
+                                    style: TextStyle(color: Colors.grey[400]),
+                                  ),
                                 ),
                               ),
                               SizedBox(
                                 height: 20,
                               ),
-                              ButtonBuilder(
-                                text: "Login",
-                                horizontal: 50,
-                                color: Colors.orange[600],
+                              FadeAnimation(
+                                1.6,
+                                ButtonBuilder(
+                                  text: "Login",
+                                  horizontal: 50,
+                                  color: Colors.orange[600],
+                                ),
                               ),
                               SizedBox(
                                 height: 40,
                               ),
                               Container(
-                                child: Text(
-                                  "Continue With Social Media",
-                                  style: TextStyle(color: Colors.grey[400]),
+                                child: FadeAnimation(
+                                  1.7,
+                                  Text(
+                                    "Continue With Social Media",
+                                    style: TextStyle(color: Colors.grey[400]),
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -138,15 +160,21 @@ class _LogInScreenState extends State<LogInScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: <Widget>[
-                                  ButtonBuilder(
-                                    text: "Facebook",
-                                    horizontal: 10,
-                                    color: Colors.blue[600],
+                                  FadeAnimation(
+                                    1.8,
+                                    ButtonBuilder(
+                                      text: "Facebook",
+                                      horizontal: 10,
+                                      color: Colors.blue[600],
+                                    ),
                                   ),
-                                  ButtonBuilder(
-                                    text: "Github",
-                                    horizontal: 25,
-                                    color: Colors.black,
+                                  FadeAnimation(
+                                    1.9,
+                                    ButtonBuilder(
+                                      text: "Github",
+                                      horizontal: 25,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ],
                               )
